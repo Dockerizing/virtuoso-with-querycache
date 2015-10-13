@@ -1,0 +1,6 @@
+{
+    "require": {
+        "saft/saft": "*"
+    },
+    "minimum-stability": "dev"
+}
