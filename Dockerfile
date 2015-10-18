@@ -15,7 +15,7 @@ RUN apt-get install -y \
     php5 php5-fpm php5-common php5-cli php5-odbc php5-curl php5-memcached php5-librdf \
     unixodbc
 
-# Add virtuoso odbc dependency for OntoWiki to me able to connecto to virtuoso
+# Add virtuoso odbc dependency to be able to connecto to virtuoso
 ADD libvirtodbc0_7.2_amd64.deb /
 RUN dpkg -i libvirtodbc0_7.2_amd64.deb
 RUN ln -s /etc/php5/mods-available/redland.ini /etc/php5/cli/conf.d/20-redland.ini
@@ -34,7 +34,7 @@ RUN composer update
 
 ADD index.php /var/www/index.php
 
-# configure the ontowiki site for nginx
+# configure site for nginx
 ADD ontowiki-nginx.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enabled/
